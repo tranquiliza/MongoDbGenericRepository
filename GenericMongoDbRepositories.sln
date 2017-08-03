@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.16
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericMongoDb.Core", "GenericMongoDb.Core\GenericMongoDb.Core.csproj", "{CC518325-DA2C-4EB5-9D05-A5CD4A38A728}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericMongoDb.Data", "GenericMongoDb.Data\GenericMongoDb.Data.csproj", "{56826F0F-4E4D-45F9-9315-E7D385E3C9CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericMognoDb.Console", "GenericMognoDb.Console\GenericMognoDb.Console.csproj", "{441B5CC1-2195-4BB0-B3F9-43AD5EEA778E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CC518325-DA2C-4EB5-9D05-A5CD4A38A728}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC518325-DA2C-4EB5-9D05-A5CD4A38A728}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC518325-DA2C-4EB5-9D05-A5CD4A38A728}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC518325-DA2C-4EB5-9D05-A5CD4A38A728}.Release|Any CPU.Build.0 = Release|Any CPU
+		{56826F0F-4E4D-45F9-9315-E7D385E3C9CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{56826F0F-4E4D-45F9-9315-E7D385E3C9CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{56826F0F-4E4D-45F9-9315-E7D385E3C9CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{56826F0F-4E4D-45F9-9315-E7D385E3C9CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{441B5CC1-2195-4BB0-B3F9-43AD5EEA778E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{441B5CC1-2195-4BB0-B3F9-43AD5EEA778E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{441B5CC1-2195-4BB0-B3F9-43AD5EEA778E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{441B5CC1-2195-4BB0-B3F9-43AD5EEA778E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
