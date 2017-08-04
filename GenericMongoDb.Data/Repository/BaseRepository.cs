@@ -23,11 +23,23 @@ namespace GenericMongoDb.Data.Repository
         public BaseRepository(MongoDbClient client)
         {
             _Context = client.GetContext();
-
             //Convention to name the collection the same as the base class. This will cause issues if we ever refactor.
-            _Collection = _Context.GetCollection<T>(nameof(T));
+            Type currentEntity = typeof(T);
+            _Collection = _Context.GetCollection<T>(currentEntity.Name);
         }
 
+        T IBaseRepository<T>.GetByObjectId(Guid id)
+        {
+            var result = _Collection.Find(m => m.Id == id);
+            return result.First();
+        }
+
+        IEnumerable<T> IBaseRepository<T>.GetAll()
+        {
+            var result = _Collection.Find(Builders<T>.Filter.Empty);
+            return result.ToList();
+        }
+        
         void IBaseRepository<T>.Insert(T entity)
         {
             _Collection.InsertOne(entity);
@@ -37,16 +49,16 @@ namespace GenericMongoDb.Data.Repository
         {
             throw new NotImplementedException();
         }
-        
-        T IBaseRepository<T>.GetByID(int id)
-        {
-            var result = _Collection.Find(m => m.Id == id);
-            return result.First();
-        }
 
         void IBaseRepository<T>.Delete(T entity)
         {
-            throw new NotImplementedException();
+            var filter = Builders<T>.Filter.Eq(nameof(entity.Id), entity.Id);
+            _Collection.DeleteOne(filter);
+        }
+
+        void IBaseRepository<T>.DeleteAll()
+        {
+            _Collection.DeleteMany(Builders<T>.Filter.Empty);
         }
     }
 }

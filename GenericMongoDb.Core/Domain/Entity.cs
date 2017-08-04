@@ -1,7 +1,14 @@
-﻿namespace GenericMongoDb.Core.Domain
+﻿using System;
+
+namespace GenericMongoDb.Core.Domain
 {
-    public class Entity
+    public abstract class Entity
     {
-        public virtual int Id { get; set; }
+        public virtual Guid Id { get; set; }
+
+        protected Entity()
+        {
+            Id = new Guid();
+        }
     }
 }

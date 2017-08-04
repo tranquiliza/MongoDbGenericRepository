@@ -1,5 +1,4 @@
-﻿using System;
-using GenericMongoDb.Core.Infrastructure;
+﻿using GenericMongoDb.Core.Infrastructure;
 using GenericMongoDb.Data.Repository;
 
 namespace GenericMongoDb.Data

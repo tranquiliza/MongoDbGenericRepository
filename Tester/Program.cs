@@ -18,21 +18,38 @@ namespace Tester
 
             IUnitOfWork uow = new UnitOfWork(myClient);
 
+            //uow.GamerRepository.DeleteAll();
 
-            var thingToUpdate = uow.GamerRepository.GetByID(0);
-            Console.WriteLine("Retrieved: " + thingToUpdate.Name);
+            //uow.GamerRepository.Insert(new Gamer("Test"));
+
+            //for (int i = 0; i < 1000; i++)
+            //{
+            //    uow.GamerRepository.Insert(new Gamer($"Number: {i}"));
+            //}
+
+            var myItem = uow.GamerRepository.GetByObjectId(new Guid("15c81567-cc4c-44bf-9436-29c88ab1507a"));
+            myItem.SetName("NewName!");
+            uow.GamerRepository.Update(myItem);
+
+            //var thingToUpdate = uow.GamerRepository.GetByID(0);
+            //Console.WriteLine("Retrieved: " + thingToUpdate.Name);
 
 
-            thingToUpdate.SetName("Daniel");
+            //thingToUpdate.SetName("Daniel");
 
-            Console.WriteLine("Core Executed!");
+            //Console.WriteLine("Core Executed!");
 
-            uow.GamerRepository.Update(thingToUpdate);
-            Console.WriteLine("Query Executed!");
+            //uow.GamerRepository.Update(thingToUpdate);
+            //Console.WriteLine("Query Executed!");
 
-            var isThisUpdated = uow.GamerRepository.GetByID(0);
-            Console.WriteLine("Now named: " + isThisUpdated.Name);
+            //var isThisUpdated = uow.GamerRepository.GetByID(0);
+            //Console.WriteLine("Now named: " + isThisUpdated.Name);
 
+            var listOfAllEntries = uow.GamerRepository.GetAll();
+            foreach (var item in listOfAllEntries)
+            {
+                Console.WriteLine(item.Id + " " + item.Name);
+            }
 
             Console.Read();
         }
