@@ -6,7 +6,7 @@ namespace GenericMongoDb.Core.Infrastructure
 {
     public interface IBaseRepository<T> where T : Entity
     {
-        T GetByObjectId(Guid id);
+        T GetById(Guid id);
 
         IEnumerable<T> GetAll();
 

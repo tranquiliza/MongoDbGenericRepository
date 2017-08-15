@@ -7,7 +7,7 @@ namespace GenericMongoDb.Data.Repository
 {
     public class GamerRepository : BaseRepository<Gamer>, IGamerRepository
     {
-        public GamerRepository(MongoDbClient client) : base(client)
+        public GamerRepository(MongoDbClient client, string tableName) : base(client, tableName)
         {
 
         }

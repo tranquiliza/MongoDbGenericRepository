@@ -17,6 +17,7 @@ namespace GenericMongoDb.Core.Domain.TestEntities
 
         public void SetName(string name)
         {
+            if (name == null) throw new ArgumentNullException();
             if (name == string.Empty) throw new ArgumentException("Given string was empty");
 
             Name = name;

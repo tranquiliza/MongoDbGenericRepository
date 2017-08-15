@@ -12,6 +12,6 @@ namespace GenericMongoDb.Data
             _Client = client;
         }
 
-        IGamerRepository IUnitOfWork.GamerRepository => new GamerRepository(_Client);
+        IGamerRepository IUnitOfWork.GamerRepository => new GamerRepository(_Client, "Gamers");
     }
 }

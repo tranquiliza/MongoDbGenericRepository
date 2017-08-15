@@ -11,7 +11,7 @@ namespace GenericMongoDb.Data.Repository
     /// Base repository for CRUD operations
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class BaseRepository<T> : IBaseRepository<T> where T : Entity
+    public abstract class BaseRepository<T> : IBaseRepository<T> where T : Entity
     {
         protected IMongoDatabase _Context;
         protected IMongoCollection<T> _Collection;
@@ -20,15 +20,15 @@ namespace GenericMongoDb.Data.Repository
         /// Do we want to pass a client, or just the database?
         /// </summary>
         /// <param name="database"></param>
-        public BaseRepository(MongoDbClient client)
+        public BaseRepository(MongoDbClient client, string tableName)
         {
             _Context = client.GetContext();
             //Convention to name the collection the same as the base class. This will cause issues if we ever refactor.
-            Type currentEntity = typeof(T);
-            _Collection = _Context.GetCollection<T>(currentEntity.Name);
+            //Type currentEntity = typeof(T);
+            _Collection = _Context.GetCollection<T>(tableName);
         }
 
-        T IBaseRepository<T>.GetByObjectId(Guid id)
+        T IBaseRepository<T>.GetById(Guid id)
         {
             var result = _Collection.Find(m => m.Id == id);
             return result.First();

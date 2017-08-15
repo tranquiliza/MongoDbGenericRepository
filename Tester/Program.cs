@@ -27,7 +27,7 @@ namespace Tester
             //    uow.GamerRepository.Insert(new Gamer($"Number: {i}"));
             //}
 
-            var myItem = uow.GamerRepository.GetByObjectId(new Guid("15c81567-cc4c-44bf-9436-29c88ab1507a"));
+            var myItem = uow.GamerRepository.GetById(new Guid("15c81567-cc4c-44bf-9436-29c88ab1507a"));
             myItem.SetName("NewName!");
             uow.GamerRepository.Update(myItem);
 
